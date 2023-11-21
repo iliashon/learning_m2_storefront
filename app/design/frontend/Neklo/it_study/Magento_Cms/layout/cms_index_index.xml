@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="main.content">
+            <container name="custom.container" htmlTag="div" before="-" htmlClass="custom-container">
+                    <block name="custom.block1" template="Magento_Cms::custom-block.phtml">
+                        <arguments>
+                            <argument name="text" xsi:type="string">Block 1</argument>
+                            <argument name="class" xsi:type="string">left</argument>
+                        </arguments>
+                    </block>
+                    <block name="custom.block2" template="Magento_Cms::custom-block.phtml">
+                        <arguments>
+                            <argument name="text" xsi:type="string">Block 2</argument>
+                            <argument name="class" xsi:type="string">right</argument>
+                        </arguments>
+                    </block>
+                    <block name="custom.block3" template="Magento_Cms::custom-block.phtml">
+                        <arguments>
+                            <argument name="text" xsi:type="string">Block 3</argument>
+                            <argument name="class" xsi:type="string">left</argument>
+                        </arguments>
+                    </block>
+                    <block name="custom.block4" template="Magento_Cms::custom-block.phtml" >
+                        <arguments>
+                            <argument name="text" xsi:type="string">Block 4</argument>
+                            <argument name="class" xsi:type="string">right</argument>
+                        </arguments>
+                    </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>
