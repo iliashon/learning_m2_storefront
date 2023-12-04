@@ -2,6 +2,13 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main.content">
+            <container name="set.photo.container" htmlTag="div" htmlClass="set-photo-cms">
+                <block class="Magento\Cms\Block\BlockByIdentifier" name="set.photo.block">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">set_photo</argument>
+                    </arguments>
+                </block>
+            </container>
         </referenceContainer>
     </body>
 </page>
