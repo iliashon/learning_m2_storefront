@@ -1,17 +1,71 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="header.panel">
-            <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
-                <arguments>
-                    <argument name="css_class" xsi:type="string">header links</argument>
-                </arguments>
-            </block>
+        <referenceContainer name="header.panel" htmlTag="div">
+                <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">header links</argument>
+                    </arguments>
+                </block>
         </referenceContainer>
+
+        <referenceContainer name="header.container">
+                <container name="header.main.content" htmlTag="div" htmlClass="header-main-content">
+                </container>
+                <container name="header.minicart.container" htmlTag="div" htmlClass="header-minicart-container">
+                </container>
+        </referenceContainer>
+
+        <move element="header.panel.wrapper" destination="header.main.content"/>
+        <move element="header-wrapper" destination="header.main.content"/>
+        <move element="minicart" destination="header.minicart.container"/>
+
+        <move element="navigation.sections" destination="header-wrapper" />
+        <move element="top.search" destination="header.panel"/>
+
         <referenceContainer name="footer">
-            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="Magento_Store::switch/stores.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="parent-footer-block" template="Magento_Theme::html/footer.phtml">
+                <block class="Magento\Cms\Block\BlockByIdentifier" name="footer-company">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">company</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\BlockByIdentifier" name="footer-support">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">support</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\BlockByIdentifier" name="footer-legal">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">legal</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\BlockByIdentifier" name="footer-install-app">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">install_app</argument>
+                    </arguments>
+                </block>
+            </block>
+
+            <referenceBlock name="form.subscribe" remove="true"/>
+
+            <referenceBlock name="footer_links" remove="true"/>
         </referenceContainer>
+
         <referenceBlock name="report.bugs" remove="true"/>
-        <move element="copyright" destination="before.body.end"/>
+        <move element="copyright" destination="footer.copyright.icons"/>
+
+        <referenceContainer name="before.body.end" htmlTag="div" htmlClass="footer-copyright-icons-bg">
+            <container name="footer.copyright.icons" htmlTag="div" htmlClass="footer-copyright-icons">
+                <block class="Magento\Cms\Block\BlockByIdentifier" name="footer-social-icons">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">social_icons_link</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
     </body>
 </page>

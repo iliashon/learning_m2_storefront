@@ -1,0 +1,78 @@
+@custom-pos: false;
+
+//
+// Customize catalog search input
+// -------------------------------------
+& when (@media-common = true) {
+    .block-search {
+        float: left;
+        margin-left: 60px;
+        input {
+            border: 0;
+            border-bottom: 1px solid #ffffff;
+            background: none;
+        }
+
+
+        .action.search {
+            right: auto;
+            left: 0;
+            .lib-typography(
+                16px,
+                @color-white,
+                @font-family__sty-josefin
+            );
+            &::after {
+                content: 'Search';
+                position: absolute;
+                left: -50px;
+                color: @color-white;
+                font-size: 16px;
+                bottom: -20px;
+            }
+        }
+    }
+}
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block-search {
+        float: left;
+        .block-content {
+            margin-bottom: 0;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block-search {
+        float: left;
+        .action.search {
+            display: inline-block;
+            .lib-button-icon(
+                @_icon-font-content: @icon-search,
+                @_icon-font-size: 20px,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @header-icons-color,
+                @_icon-font-color-hover: @header-icons-color-hover,
+                @_icon-font-line-height: 32px
+            );
+            .lib-button-reset();
+            padding: @indent__xs 0;
+            height: 16px;
+            position: absolute;
+            top: 0;
+            right: auto;
+            left: -10px;
+            z-index: 1;
+        }
+    }
+}
