@@ -4,19 +4,58 @@
  * @var \Magento\Framework\Escaper $escaper
  */
 ?>
-<div class="container-footer-blocks">
-    <div class="footer-link-block company">
-        <?= $block->getChildHtml('footer-company') ?>
+
+<div id="custom-accordion" class="custom-accordion">
+
+    <div class="group">
+        <h3>Company</h3>
+        <div>
+            <?= $block->getChildHtml('footer-company'); ?>
+        </div>
     </div>
-    <div class="footer-link-block support">
-        <?= $block->getChildHtml('footer-support') ?>
+
+    <div class="group">
+        <h3>Support</h3>
+        <div>
+            <?= $block->getChildHtml('footer-support') ?>
+        </div>
     </div>
-    <div class="footer-link-block legal">
-        <?= $block->getChildHtml('footer-legal') ?>
+
+    <div class="group">
+        <h3>Legal</h3>
+        <div>
+            <?= $block->getChildHtml('footer-legal') ?>
+        </div>
     </div>
-    <div class="footer-link-block install-app">
-        <?= $block->getChildHtml('footer-install-app') ?>
+
+    <div class="group">
+        <h3>Install App</h3>
+        <div>
+            <?= $block->getChildHtml('footer-install-app') ?>
+        </div>
     </div>
 </div>
 
+<script>
+    require([
+        'jquery',
+        'matchMedia',
+        'jquery/ui'], function ($, mediaCheck) {
+
+        $("#custom-accordion").accordion({header: "> div > h3"});
+
+        let $mediaBreakpoint = '(max-width: 767px)';
+        mediaCheck({
+            media: $mediaBreakpoint,
+            entry: $.proxy(function () {
+                $("#custom-accordion").accordion({ active: [], header: "> div > h3", multipleCollapsible: true, collapsible: true });
+                // mobile
+            }, this),
+            exit: $.proxy(function () {
+                $("#custom-accordion").accordion("destroy");
+                // desktop
+            }, this)
+        });
+    });
+</script>
 

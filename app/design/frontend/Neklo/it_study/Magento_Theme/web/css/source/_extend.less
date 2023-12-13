@@ -7,10 +7,53 @@
     //  Header
     //  ---------------------------------------------
 
+    .panel.wrapper {
+        border-bottom: 0;
+        background: @sty-color-blue;
+        .panel.header {
+            box-sizing: border-box;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+    }
+
     .page-header {
         border-bottom: 0;
-        .panel.wrapper {
-            border-bottom: 0;
+        position: relative;
+
+        .header.links {
+                position: absolute;
+                top: 20px;
+                right: 150px;
+                margin-right: 30px !important;
+        }
+    }
+
+    .panel.wrapper {
+        color: @color-white;
+    }
+
+    .sticky-header {
+        position: sticky;
+        z-index: 1;
+        width: 100%;
+        top: 0;
+        animation-name: header-appearance;
+        animation-duration: 0.3s;
+        .minicart-wrapper {
+            top: 0;
+            height: 102px;
+        }
+    }
+
+    // Animation sticky header
+    @keyframes header-appearance {
+        from {
+            top: -102px;
+        }
+        to {
+            top: 0;
         }
     }
 
@@ -22,42 +65,10 @@
         background: @sty-color-blue;
     }
 
-    .container-footer-blocks {
-        display: flex;
-        justify-content: space-between;
-        .footer-link-block {
-            h3 {
-                .lib-typography(
-                    16px,
-                    @color-white,
-                    @font-family__sty-inter,
-                    600
-                );
-            }
-            .footer-link-list {
-                display: flex;
-                flex-direction: column;
-                gap: 1em;
-                .link-item a {
-                    .lib-typography(
-                        16px,
-                        @color-white,
-                        @font-family__sty-inter,
-                        400
-                    );
-                }
-            }
-            .playmarket-image,
-            .app-store-image {
-                margin-top: 1em;
-            }
-
-        }
-    }
-
     .footer-copyright-icons-bg {
-        padding: 2em 0 1em 0;
+        padding: 2em 20px 1em 20px;
         background: @sty-color-blue;
+        display: none;
         .footer-copyright-icons {
             display: flex;
             flex-direction: row-reverse;
@@ -73,6 +84,41 @@
             }
         }
     }
+    #custom-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding-bottom: 2em;
+
+        .group > h3 {
+            .lib-typography(
+                16px,
+                @color-white,
+                @font-family__sty-inter,
+                600
+            );
+        }
+
+        .playmarket-image,
+        .app-store-image {
+            margin-top: 1em;
+        }
+    }
+
+    .footer-link-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        .link-item a {
+            .lib-typography(
+                16px,
+                @color-white,
+                @font-family__sty-inter,
+                400
+            );
+        }
+    }
+
 }
 
 //
@@ -84,10 +130,48 @@
     //  Header
     //  ---------------------------------------------
 
+    .panel.wrapper {
+        border-bottom: 0;
+    }
+
     .page-header {
         border-bottom: 0;
-        .panel.wrapper {
-            border-bottom: 0;
+
+        .logo {
+            margin: -8px auto -30px 0;
+
+            img {
+                margin-top: 4px;
+            }
+        }
+    }
+
+    //
+    //  Footer
+    //  ---------------------------------------------
+
+    .footer-copyright-icons-bg {
+        display: block;
+    }
+
+    #custom-accordion {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 1em;
+        padding-bottom: 2em;
+        .group > h3 {
+            .lib-typography(
+                16px,
+                @color-white,
+                @font-family__sty-inter,
+                600
+            );
+        }
+
+        .playmarket-image,
+        .app-store-image {
+            margin-top: 1em;
         }
     }
 }

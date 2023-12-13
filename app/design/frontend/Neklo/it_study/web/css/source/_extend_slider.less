@@ -1,0 +1,16 @@
+& when (@media-common = true) {
+    .slider-container {
+        width: calc(~'100vw - 15px');
+        left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+
+        .pagebuilder-overlay {
+            height: 600px;
+        }
+
+        [data-content-type='row'][data-appearance='contained'] {
+            max-width: 100%;
+        }
+    }
+}

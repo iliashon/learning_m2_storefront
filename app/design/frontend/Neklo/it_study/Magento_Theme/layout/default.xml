@@ -16,9 +16,9 @@
                 </container>
         </referenceContainer>
 
-        <move element="header.panel.wrapper" destination="header.main.content"/>
         <move element="header-wrapper" destination="header.main.content"/>
-        <move element="minicart" destination="header.minicart.container"/>
+        <move element="minicart" destination="header.main.content"/>
+        <move element="header.panel.wrapper" destination="page.wrapper" before="-"/>
 
         <move element="navigation.sections" destination="header-wrapper" />
         <move element="top.search" destination="header.panel"/>

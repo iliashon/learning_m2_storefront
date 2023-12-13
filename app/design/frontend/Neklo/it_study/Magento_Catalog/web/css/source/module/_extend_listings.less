@@ -45,11 +45,12 @@
         .product-item-info {
             border: 1px solid @sty-color-border-products;
             border-radius: 15px;
-            padding: 9px;
+            padding: 15px;
             &:hover,
             &.active {
                 box-shadow: none !important;
                 margin: 0;
+                padding: 15px;
             }
         }
 
@@ -73,6 +74,20 @@
             position: relative;
             box-shadow: none !important;
             margin: 9px 0 0 0 !important;
+        }
+
+        .product-image-container {
+            width: 100% !important;
+            .product-image-wrapper {
+                width: 100%;
+                height: 300px;
+                padding-bottom: 0 !important;
+                .product-image-photo {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
         }
     }
 }
